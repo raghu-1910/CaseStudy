@@ -28,7 +28,7 @@ package casestudy;
 			public String toString() {
 				return "Item [idNum=" + idNum + ", title=" + title + ", numCop=" + numCop + "]";
 			}
-			//Here we use Parameterized constructor
+			//Here we use one method for printing title and number of copies
 			public void print() {
 				System.out.println("Title:"+title);
 				System.out.println("Item Number"+idNum);
@@ -55,9 +55,10 @@ package casestudy;
 			private int yearOfPub;
 
 		}
+		//Creating  abstract class of media item for media 
 		abstract class MediaItem {
 			private int runTime;
-
+			//Here use getter and setters
 			public int getRunTime() {
 				return runTime;
 			}
@@ -65,17 +66,19 @@ package casestudy;
 			public void setRunTime(int runTime) {
 				this.runTime = runTime;
 			}
-
+			//Here use toString method
 			@Override
 			public String toString() {
 				return "MediaItem [runTime=" + runTime + "]";
 			}
 
 		}
+		//Here we extends  all the properties which we define in MediaItem in video class
 		class Video extends MediaItem {
 			private String dirName;
 			private String genre;
 			private int yearOfRel;
+			//Here We Use Getters and setters
 			public void idNum(int i) {
 				// TODO Auto-generated method stub
 
@@ -93,9 +96,11 @@ package casestudy;
 
 			}
 		}
+		//Here also we extends All the method of mediaItem in CD class
 		class CD extends MediaItem {
 			private String artist;
 			private String genre;
+			//Here we use getter and setter
 			public void setIdNum(int i) {
 				// TODO Auto-generated method stub
 
@@ -109,14 +114,22 @@ package casestudy;
 
 			}
 		}
+		//here is MAIN method where we create all the object of class which we want and method
 		public static void main(String[] args) {
-			CaseStudy cl=new CaseStudy(); //Creating Object of case study
-			Book b=cl.new Book();
-			JournalPaper j=cl.new JournalPaper();	//Using Object of casestudy and call journalPaper
+			//Creating Object of case study
+			CaseStudy cl=new CaseStudy(); 
+			//Creating Object of Book class using case study class
+			Book b=cl.new Book();	
+			//Here Creating Object of JournalPaper suing CaseStudy class
+			JournalPaper j=cl.new JournalPaper();	
 			
-			Video v=cl.new Video();	//Here also using object 
+			//Creating Video class object using caseStudy 
+			Video v=cl.new Video();
+			
+			//Creating CD class Object Using CaseStudy class
 			CD c=cl.new CD();
-			//Setting All the  things like author name title and numCopies
+			
+			//Setting All the  things like author name title and numCopies using Book object
 			b.setAuthorName("Amrita pritam");
 			b.setTitle("The Skeleton and that man");
 			b.setNumCop(5);
